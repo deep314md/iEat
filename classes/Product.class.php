@@ -1,7 +1,7 @@
 <?php
 require_once('config.php');
 
-class Product{
+class Product extends ProductEngine{
 
     public static $productTabele = PRODUCTS;
 
@@ -25,10 +25,8 @@ class Product{
     public $vitD;
     public $vitE;
     public $vitK;
-    public $corect = false; 
 
-    public static $params = [];
-    public static $productParam = [
+    public static $nameParams = [
 
         'category',
         'name',
@@ -52,48 +50,24 @@ class Product{
 
     public function __construct(){
 
-        self::$params = func_get_args()[0];
+        $valParams = func_get_args()[0];
+        ProductEngine::productController($this, self::$nameParams, $valParams);
 
-        if ($this->corect = $this->ckeckParam( self::$params)){
-            $this->complete();
-        };
     }
     
-
-    public function ckeckParam($params){
-
-        foreach ($params as $key => $val){
-
-            if( !in_array($key, self::$productParam) ) return false;    
-
-        }
-
-        return true;
-    }
-
-
-
-    public function complete(){
-
-        foreach (self::$params as $key => $value)  $this->$key = $value;
-        
-    }
-
-
 }
 
 
 
-$arr = [
+// $arr = [
 
-    'categorya' => 'fructe',
-    'name' => 'mar',
-    'proteins' => 23,
-    'carbohydrates' => 15,
-];
-
-
-$obj = new Product($arr);
+//     'category' => 'fructe',
+//     'name' => 'mar',
+//     'proteins' => 23,
+//     'carbohydrates' => 15,
+//     'Cu'=>5
+// ];
 
 
-print_r($obj);
+// $obj = new Product($arr);
+// print_r($obj);

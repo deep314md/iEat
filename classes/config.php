@@ -1,5 +1,11 @@
 <?php
 
+spl_autoload_register('classLoader');
+
+function classLoader($class){
+ $path = __DIR__.DIRECTORY_SEPARATOR.$class.".class.php";
+ require_once $path;
+}
 
 
 //  Mysql config
