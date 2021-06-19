@@ -3,9 +3,7 @@ require_once('config.php');
 
 class Product{
 
-    public $productTabele = PRODUCTS;  
-
-    public $product; 
+    public static $productTabele = PRODUCTS;
 
     public $category;
     public $name;
@@ -27,9 +25,10 @@ class Product{
     public $vitD;
     public $vitE;
     public $vitK;
+    public $corect = false; 
 
-
-    public $productParam = [
+    public static $params = [];
+    public static $productParam = [
 
         'category',
         'name',
@@ -53,29 +52,31 @@ class Product{
 
     public function __construct(){
 
-        if (func_get_args()){
+        self::$params = func_get_args()[0];
 
-            $prod = $this->ckeckParam( func_get_args() );
-
-        }
-
+        if ($this->corect = $this->ckeckParam( self::$params)){
+            $this->complete();
+        };
     }
     
 
-    public function ckeckParam($prod){
+    public function ckeckParam($params){
 
-        foreach ($prod as $key => $val){
+        foreach ($params as $key => $val){
 
-            if( in_array($key, $this->productParam) ) {
-
-                $this->$key = $val;                
-            
-            } else return false;
-
+            if( !in_array($key, self::$productParam) ) return false;    
 
         }
 
         return true;
+    }
+
+
+
+    public function complete(){
+
+        foreach (self::$params as $key => $value)  $this->$key = $value;
+        
     }
 
 
@@ -85,12 +86,14 @@ class Product{
 
 $arr = [
 
-    'category' => 'fructe',
+    'categorya' => 'fructe',
     'name' => 'mar',
     'proteins' => 23,
     'carbohydrates' => 15,
 ];
 
 
-$p = new Product($arr);
-print_r($p);
+$obj = new Product($arr);
+
+
+print_r($obj);
