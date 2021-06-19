@@ -1,7 +1,7 @@
 <?php
 require_once('config.php');
 
-class Product extends ProductEngine{
+class Product {
 
     public static $productTabele = PRODUCTS;
 
@@ -51,7 +51,7 @@ class Product extends ProductEngine{
     public function __construct(){
 
         $valParams = func_get_args()[0];
-        ProductEngine::productController($this, self::$nameParams, $valParams);
+        Prepare::check($this, self::$nameParams, $valParams);
 
     }
     

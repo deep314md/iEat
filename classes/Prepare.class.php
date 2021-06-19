@@ -1,11 +1,9 @@
 <?php
 
+class Prepare{ 
 
 
-class ProductEngine{
-
-
-    public static function productController($obj, $nameParams, $valParams){
+    public static function check($obj, $nameParams, $valParams){
 
         if (self::ckeckParam($nameParams, $valParams )){
             return self::complete($obj, $valParams);

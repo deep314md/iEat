@@ -3,9 +3,9 @@
 require('config.php');
 
 
-class ProductLikes extends ProductEngine{
+class ProductLikes {
 
-    public $user;
+    public $user_id;
     public $produc_id;
     public $produc_add_id;
 
@@ -21,7 +21,7 @@ class ProductLikes extends ProductEngine{
     public function __construct(){
 
         $valParams = func_get_args()[0];
-        ProductEngine::productController($this, self::$nameParams, $valParams);
+        Prepare::check($this, self::$nameParams, $valParams);
 
     }
 

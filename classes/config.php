@@ -9,7 +9,6 @@ function classLoader($class){
 
 
 //  Mysql config
-
 define('USER_MYSQL', 'dumitru');
 define('PASS_MYSQL', 'dumitru314');
 define('HOST_MYSQL', 'localhost');
