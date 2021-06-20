@@ -1,5 +1,7 @@
 <?php
 
+require_once('../config.php');
+
 class Prepare{ 
 
 
@@ -18,8 +20,6 @@ class Prepare{
         }
         return true;
     }
-
-
 
     public static function complete($obj, $params){
 
