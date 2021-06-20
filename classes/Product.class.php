@@ -3,7 +3,7 @@ require_once('../config.php');
 
 class Product {
 
-    public static $productTabele = PRODUCTS;
+    public static $table = PRODUCTS;
 
     public $category;
     public $name;

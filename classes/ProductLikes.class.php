@@ -5,6 +5,8 @@ require('config.php');
 
 class ProductLikes {
 
+    public static $table = PRODUCTS_LIKES;
+
     public $user_id;
     public $produc_id;
     public $produc_add_id;

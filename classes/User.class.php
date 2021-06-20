@@ -4,6 +4,8 @@ require_once('../config.php');
 
 class User {
 
+    public static $table = USERS;
+
     public $name;
     public $password;
     public $age;
