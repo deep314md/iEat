@@ -2,7 +2,7 @@
 
 require_once('../config.php');
 
-class MySqlConnection{ 
+class MySql extends PDO{ 
 
     private $dbname = DB_NAME; 
     private $host =  DB_HOST;
@@ -31,11 +31,25 @@ class MySqlConnection{
     }
 
 
+    
+
 
 }
 
-// $conn = (new MySqlConnection())->connection;
 
+
+
+
+// $arrData = [
+
+//     'name' => 'anatol',
+//     'age' => 36,
+//     'height' => 63
+    
+// ];
+
+
+// $conn = (new MySql())->conn;
 
 // $res = $conn->query("SELECT * FROM users");
 // // var_dump($res);

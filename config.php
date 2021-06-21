@@ -15,13 +15,13 @@ define('PRODUCTS_ADD', 'products_add');
 define('USERS', 'users');
 define('PRODUCTS_LIKES', 'products_likes');
 
-
+define("PATH_PAGES",__DIR__);
 
  // constante despre unitati  de masurare
 
 
 
- spl_autoload_register('classes_Loader');
+spl_autoload_register('classes_Loader');
 
 function classes_Loader($class){
     
@@ -30,15 +30,15 @@ function classes_Loader($class){
     // echo $class;
     
     $classes = ["Product", "ProductAdd", "ProductLikes", "User"];
-    $controllers = ["SuperController", "UserController","ProductLikeController", 
-                    "ProductController", "ProductAddController"];
-    $utils = ["MySql", "MySqlConnection", "Common"];
+    $controllers = ["SuperController", "UserController","ProductLikeController","ProductController", "ProductAddController"];
+    $utils = ["MySql","Common"];
     $path ="";
     
     if (in_array($class, $classes))     $path = __DIR__."/classes/"  .$class.".class.php";    
-    if (in_array($class, $controllers)) $path = __DIR__."/contoller/".$class.".php";    
-    if (in_array($class, $utils))       $path = __DIR__."/utils/"    .$class.".php";    
+    if (in_array($class, $controllers)) $path = __DIR__."/controllers/".$class.".class.php";    
+    if (in_array($class, $utils))       $path = __DIR__."/utils/"    .$class.".class.php";    
 
+    // echo "\n".$path;die;
     if (is_file($path)){
         require_once $path;
     } else {

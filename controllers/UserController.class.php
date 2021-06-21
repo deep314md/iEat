@@ -1,19 +1,21 @@
 <?php 
 
-require('../config.php');
+// require_once('../config.php');
 
 class UserController extends User{
 
 
     public $valParams;
+    public $conn;
+
     public function __construct($valParams){
 
         $this->valParams = $valParams; 
-        
+        echo "aici";
         if ($this->valParams){
 
             parent::__construct($this->valParams);
-            $this->conn  = new MySql($this->table);
+            $this->conn = (new MySql())->conn;
 
         } else {
 
@@ -24,30 +26,30 @@ class UserController extends User{
     }  
 
 
-    public function insert($sql = ""){
-        // echo $sql;
-        // return $this->conn->query($sql);
-    }
+    // public function insertRows($sql = ""){
+    //     // echo $sql;
+    //     // return $this->conn->query($sql);
+    // }
 
 
-    public function deleteUser(){
-        /**
-         * `delete` user from tabele
-         * 
-         */
-        $this->conn->delete([]);
+    // public function deleteRows(){
+    //     /**
+    //      * `delete` user from tabele
+    //      * 
+    //      */
+    //     $this->conn->delete([]);
 
         
-    }
+    // }
 
 
-    public function setUser(array $data){
-        /** 
-         * seteaza datele user-ului 
-         */
-        $this->conn->set([]);
+    // public function setUser(array $data){
+    //     /** 
+    //      * seteaza datele user-ului 
+    //      */
+    //     $this->conn->set([]);
         
-    }
+    // }
 
 
 
