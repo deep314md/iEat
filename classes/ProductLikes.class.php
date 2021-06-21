@@ -1,11 +1,11 @@
 <?php
 
-require('config.php');
+require('../config.php');
 
 
 class ProductLikes {
 
-    public static $table = PRODUCTS_LIKES;
+    public $table = PRODUCTS_LIKES;
 
     public $user_id;
     public $produc_id;
@@ -23,7 +23,7 @@ class ProductLikes {
     public function __construct(){
 
         $valParams = func_get_args()[0];
-        Prepare::check($this, self::$nameParams, $valParams);
+        Common::check($this, self::$nameParams, $valParams);
 
     }
 

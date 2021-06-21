@@ -4,7 +4,7 @@ require_once('../config.php');
 
 class User {
 
-    public static $table = USERS;
+    public $table = USERS;
 
     public $name;
     public $password;
@@ -22,25 +22,24 @@ class User {
     ];  
 
  
-    public function __construct(){
+    public function __construct($valParams){
 
-        $valParams = func_get_args()[0];
-        Prepare::check($this, self::$nameParams, $valParams);
+        Common::check($this, self::$nameParams, $valParams);
 
     }
 
 
-
 }
 
-$arr = [
 
-    'name' => 'costea',
-    'age' => 3,
-    'weight' => 120
+// $arr = [
+
+//     'name' => 'costea',
+//     'age' => 3,
+//     'weight' => 120
     
-];
+// ];
 
 
-$obj = new User($arr);
-print_r($obj);
+// $obj = new User($arr);
+// print_r($obj);

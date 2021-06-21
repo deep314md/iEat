@@ -22,9 +22,23 @@ class MySqlConnection{
     public function __construct(){
         
         $dsn = "mysql:host=$this->host;dbname=$this->dbname;port=$this->port";
-        $this->connection = new PDO($dsn, $this->user, $this->pass, $this->options);
+ 
+        try {
+            $this->connection = new PDO($dsn, $this->user, $this->pass, $this->options);
+        } catch (PDOException $e) {
+            die('Connection failed: ' . $e->getMessage());
+        }
     }
 
 
 
 }
+
+// $conn = (new MySqlConnection())->connection;
+
+
+// $res = $conn->query("SELECT * FROM users");
+// // var_dump($res);
+// foreach ($res as $row) {
+//     var_dump($row);  
+// }

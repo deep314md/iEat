@@ -2,9 +2,11 @@
 
 require_once('../config.php');
 
-class Prepare{ 
+class Common extends MySql{ 
 
-
+    /**
+     * Verifica ca informatia $key => $value este posibila si daca nu va fi confilict cu Baza
+     */
     public static function check($obj, $nameParams, $valParams){
 
         if (self::ckeckParam($nameParams, $valParams )){

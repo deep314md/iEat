@@ -30,13 +30,14 @@ function classes_Loader($class){
     // echo $class;
     
     $classes = ["Product", "ProductAdd", "ProductLikes", "User"];
-    $controllers = [];
-    $utils = ["MySql", "MySqlConnection", "Prepare"];
+    $controllers = ["SuperController", "UserController","ProductLikeController", 
+                    "ProductController", "ProductAddController"];
+    $utils = ["MySql", "MySqlConnection", "Common"];
     $path ="";
     
-    if (in_array($class, $classes)) $path = __DIR__.DIRECTORY_SEPARATOR."classes/".$class.".class.php";    
-    if (in_array($class, $controllers)) $path = __DIR__.DIRECTORY_SEPARATOR."contoller/".$class.".php";    
-    if (in_array($class, $utils)) $path = __DIR__.DIRECTORY_SEPARATOR."utils/".$class.".php";    
+    if (in_array($class, $classes))     $path = __DIR__."/classes/"  .$class.".class.php";    
+    if (in_array($class, $controllers)) $path = __DIR__."/contoller/".$class.".php";    
+    if (in_array($class, $utils))       $path = __DIR__."/utils/"    .$class.".php";    
 
     if (is_file($path)){
         require_once $path;

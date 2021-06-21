@@ -3,7 +3,7 @@ require_once('../config.php');
 
 class Product {
 
-    public static $table = PRODUCTS;
+    public $table = PRODUCTS;
 
     public $category;
     public $name;
@@ -51,7 +51,7 @@ class Product {
     public function __construct(){
 
         $valParams = func_get_args()[0];
-        Prepare::check($this, self::$nameParams, $valParams);
+        Common::check($this, self::$nameParams, $valParams);
 
     }
     

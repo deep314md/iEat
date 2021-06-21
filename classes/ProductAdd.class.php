@@ -4,7 +4,7 @@ require_once('../config.php');
 
 class ProductAdd extends Product{
 
-    public static $table = PRODUCTS_ADD;
+    public $table = PRODUCTS_ADD;
     public $user;
 
     public function __construct($user, $params){

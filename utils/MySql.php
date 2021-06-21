@@ -2,16 +2,25 @@
 
 require_once('../config.php');
 
-class Mysql extends MySqlConnection{ 
+class MySql extends MySqlConnection{ 
 
     public $conn;
-    public function __construct(){
+    public $table;
 
+    public function __construct($table =""){
+
+        $this->table = $table;
         $this->conn = (new MySqlConnection())->connection;
 
     }
 
-    public function insert(){}
+
+    public function insert(array $data){
+        // va insera mai multe informatie odata
+        // foreach(){}
+        
+        return true;
+    }
 
 
 }
@@ -19,10 +28,20 @@ class Mysql extends MySqlConnection{
 
 
 
-$conn = (new MySql())->conn;
 
-$res = $conn->query("SELECT * FROM users");
+// $arrData = [
 
-$res = $res->fetch();
+//     'name' => 'anatol',
+//     'age' => 36,
+//     'height' => 63
+    
+// ];
 
-var_dump($res);
+
+// $conn = (new MySql())->conn;
+
+// $res = $conn->query("SELECT * FROM users");
+// // var_dump($res);
+// foreach ($res as $row) {
+//     var_dump($row);  
+// }
