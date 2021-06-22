@@ -2,39 +2,58 @@
 
 // require_once('../config.php');
 
-class Login {
+class LoginController {
 
-    public function __construct($valParams){
+    public $valArray;
+    public $params;
+    public $table = USERS;
 
-        if ($this->valParams){
+    public function __construct($valArray=[]){
+
+        $this->valArray = $valArray;
+
+        try {
 
             $this->conn = (new MySql())->conn;
+        
+        } catch (PDOException $e) {
+            
+            echo "No data in array";
+        
+        }
 
+
+    }  
+
+
+    public function checkUser(){
+
+        $result = null;
+        if(isset($this->valArray['user']) && isset($this->valArray['user'])){
+
+            $user = $this->valArray['user'];
+            $pass = $this->valArray['pass'];
+
+            $sql = "SELECT user, pass FROM $this->table WHERE user=$user AND pass=$pass";
+
+            $result = $this->conn->query($sql);
         } else {
 
-            echo "No data in array";
+            echo "nothing in array dude";
 
         }
-        
-    }  
+      
+        return $result ? true : false;
+    }
 
     
 }
 
 
-// $arrData = [
-
-//     'name' => 'anatol',
-//     'age' => 36,
-//     'height' => 63
-    
-// ];
-
-
-// $user = new UserController($arrData);
-// // print_r($user);
+// $conn = (new MySql())->conn;
 
 // $res = $conn->query("SELECT * FROM users");
+// // var_dump($res);
 // foreach ($res as $row) {
 //     var_dump($row);  
 // }
