@@ -6,11 +6,18 @@ class SuperController{
 
     public $page;
     public $path;
+    public $params;
+    public $query;
+
+
     
 
-    public function __construct($page="login"){
+        
+    public function __construct($query = ["page"=>"Login"])  {
+        
+        $this->page = $query['page'];
+        $this->query = $query;
 
-        $this->page = $page;
         $this->root();
 
     }
@@ -20,15 +27,26 @@ class SuperController{
 
         if($this->page){
 
-            $this->path = PATH_PAGES."/pages/".$this->page.".php";
-
-            require_once(HEADER);
-            require_once($this->path);
-            require_once(FOOTER);
+            $class = $this->page."Controller";
+            $this->params = new $class((array) $this->query);
             
         }
 
     }
+
+
+    public function view(){
+
+        $this->path = PATH_PAGES."/pages/".$this->page.".php";
+
+        $params = (array) $this->params;
+      
+        require_once(HEADER);
+        require_once($this->path);
+        require_once(FOOTER);
+
+    }
+
 
    
 }

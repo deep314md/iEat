@@ -1,20 +1,19 @@
 <?php
 
-//  mysql config
+//  mysql
 define('DB_USER', 'dumitru');
 define('DB_PASS', 'dumitru314');
 define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);
 define('DB_NAME', 'ieat');
 
-
-
-//  tables name
+//  tables
 define('PRODUCTS', 'products');
 define('PRODUCTS_ADD', 'products_add');
 define('USERS', 'users');
 define('PRODUCTS_LIKES', 'products_likes');
 
+// paths
 define("PATH_PAGES",__DIR__);
 define("HEADER",__DIR__."/pages/header.php");
 define("FOOTER",__DIR__."/pages/footer.php");
@@ -23,6 +22,9 @@ define("FOOTER",__DIR__."/pages/footer.php");
 
 
 
+
+
+ 
 spl_autoload_register('classes_Loader');
 
 function classes_Loader($class){
