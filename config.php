@@ -16,6 +16,8 @@ define('USERS', 'users');
 define('PRODUCTS_LIKES', 'products_likes');
 
 define("PATH_PAGES",__DIR__);
+define("HEADER",__DIR__."/pages/header.php");
+define("FOOTER",__DIR__."/pages/footer.php");
 
  // constante despre unitati  de masurare
 
@@ -30,7 +32,7 @@ function classes_Loader($class){
     // echo $class;
     
     $classes = ["Product", "ProductAdd", "ProductLikes", "User"];
-    $controllers = ["SuperController", "UserController","ProductLikeController","ProductController", "ProductAddController"];
+    $controllers = ["SuperController","LoginController","UserController","ProductLikeController","ProductController", "ProductAddController"];
     $utils = ["MySql","Common"];
     $path ="";
     
