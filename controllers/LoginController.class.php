@@ -29,7 +29,7 @@ class LoginController {
     public function checkUser(){
 
         $result = null;
-        if(isset($this->valArray['user']) && isset($this->valArray['user'])){
+        if(isset($this->valArray['user']) && isset($this->valArray['pass'])){
 
             $user = $this->valArray['user'];
             $pass = $this->valArray['pass'];
@@ -37,6 +37,7 @@ class LoginController {
             $sql = "SELECT user, pass FROM $this->table WHERE user=$user AND pass=$pass";
 
             $result = $this->conn->query($sql);
+
         } else {
 
             echo "nothing in array dude";

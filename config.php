@@ -42,7 +42,7 @@ function classes_Loader($class){
     if (in_array($class, $controllers)) $path = __DIR__."/controllers/".$class.".class.php";    
     if (in_array($class, $utils))       $path = __DIR__."/utils/"    .$class.".class.php";    
 
-    echo $path . "  -  " . $class ."\n";
+    // echo $path . "  -  " . $class ."\n";
     if (is_file($path)){
         require_once $path;
     } else {

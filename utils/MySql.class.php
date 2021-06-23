@@ -11,7 +11,7 @@ class MySql extends PDO{
     private $pass =  DB_PASS;
 
 
-    public $connection;
+    public $conn;
 
     private $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -24,7 +24,7 @@ class MySql extends PDO{
         $dsn = "mysql:host=$this->host;dbname=$this->dbname;port=$this->port";
  
         try {
-            $this->connection = new PDO($dsn, $this->user, $this->pass, $this->options);
+            $this->conn = new PDO($dsn, $this->user, $this->pass, $this->options);
         } catch (PDOException $e) {
             die('Connection failed: ' . $e->getMessage());
         }

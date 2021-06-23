@@ -1,7 +1,4 @@
 <?php 
-// require_once('../config.php');
-// require_once('LoginController.class.php');
-
 class SuperController{
 
     public $page;
@@ -46,13 +43,14 @@ class SuperController{
 
     public function view(){
 
-        $this->pathTo = PATH_PAGES."/pages/".$this->page.".php";
-        // echo $this->path; die;
+        // path to page
+
+        $this->pathTo = PATH_PAGES."/pages/".strtolower($this->page).".php";
         $params = (array) $this->params;
-      
-        require_once(HEADER);
-        require_once($this->path);
-        require_once(FOOTER);
+
+        require(HEADER);
+        require($this->pathTo);
+        require(FOOTER);
 
     }
 
