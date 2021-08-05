@@ -3,6 +3,10 @@
 <?php
 
 
-echo "<h2>Main</h2>";
+if(isset($_POST)){
 
-echo __DIR__."/main.php";
+    print_r($_POST);
+} else {
+
+    echo "nu am gasit nimic";
+}

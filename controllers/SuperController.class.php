@@ -51,7 +51,7 @@ class SuperController{
         require(HEADER);
         require($this->pathTo);
         require(FOOTER);
-
+        
     }
 
 
